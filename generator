@@ -1,8 +1,10 @@
 #!/bin/bash
 
-SECONDS=0
+SECONDS=2
 start=0
-
+temp=1
+temp2=1
+a=1
 [[ -e log.txt ]] || echo > log.txt "$SECONDS"
 
 SPOILER="I watched Avengers: Endgame. Thanos d**s..."
@@ -10,17 +12,25 @@ SPOILER="I watched Avengers: Endgame. Thanos d**s..."
 while ((1))
 do
 	if [[ $start != $SECONDS ]]
-	then
-		echo "$SECONDS"
+	   then	
+	        echo $(($SECONDS-$temp))
+		
+		temp=$(($temp2+$temp))
+
 		echo >> log.txt "$SECONDS"
 		start=$SECONDS
+		
 		
 		RAND=$RANDOM
 		if [[ $((RAND%3)) -eq 0 ]]
 		then
 			echo $SPOILER
 			echo >> log.txt "$SPOILER"
+		#	sleep 2
+		#	temp=$(($temp+$temp2))
 		fi
+		sleep 2
+		
 	fi
 done
 
