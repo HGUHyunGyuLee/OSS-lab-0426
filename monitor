@@ -11,6 +11,7 @@ do
 		then
 			echo $cur
 			prev=$cur
+			break
 		else
 			echo "Spoiler Alert!"
 			break

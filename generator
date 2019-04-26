@@ -15,9 +15,10 @@ do
 	   then	
 	        echo $(($SECONDS-$temp))
 		
-		temp=$(($temp2+$temp))
+	
 
-		echo >> log.txt "$SECONDS"
+		echo >> log.txt "$(($SECONDS-$temp))"
+		temp=$(($temp2+$temp))
 		start=$SECONDS
 		
 		
